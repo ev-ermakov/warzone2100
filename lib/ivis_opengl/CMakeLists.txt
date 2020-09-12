@@ -44,7 +44,6 @@ file(GLOB SRC
 
 find_package(PNG 1.2 REQUIRED)
 find_package(OpenGL REQUIRED)
-find_package(GLEW 1.5.2 REQUIRED)
 find_package(Freetype REQUIRED)
 find_package(Harfbuzz 1.0 REQUIRED)
 
@@ -55,13 +54,4 @@ if(WZ_TARGET_ADDITIONAL_PROPERTIES)
 endif()
 target_include_directories(ivis-opengl PRIVATE ${HARFBUZZ_INCLUDE_DIRS} ${FREETYPE_INCLUDE_DIR_ft2build})
 target_link_libraries(ivis-opengl PRIVATE framework PNG::PNG ${HARFBUZZ_LIBRARIES} ${FREETYPE_LIBRARIES})
-target_link_libraries(ivis-opengl PUBLIC ${OPENGL_gl_LIBRARY} ${OPENGL_glu_LIBRARY} GLEW::GLEW)
-
-if("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU")
-  if(${CMAKE_CROSSCOMPILING})
-    target_compile_definitions(ivis-opengl PUBLIC "GLEW_STATIC")
-  endif()
-endif()
-
-
-
+target_link_libraries(ivis-opengl PUBLIC ${OPENGL_gl_LIBRARY})

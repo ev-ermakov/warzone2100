@@ -39,11 +39,11 @@
 #endif
 #include <glm/gtx/transform.hpp>
 
-#ifndef GLEW_VERSION_4_3
-#define GLEW_VERSION_4_3 false
+#ifndef GL_VERSION_4_3
+#define GL_VERSION_4_3 false
 #endif
-#ifndef GLEW_KHR_debug
-#define GLEW_KHR_debug false
+#ifndef GL_KHR_debug
+#define GL_KHR_debug false
 #endif
 
 #include <algorithm>
@@ -572,7 +572,7 @@ SHADER_MODE pie_LoadShader(SHADER_VERSION vertex_version, SHADER_VERSION fragmen
 				glAttachShader(program.program, shader);
 				success = true;
 			}
-			if (GLEW_VERSION_4_3 || GLEW_KHR_debug)
+			if (GLAD_GL_VERSION_4_3 || GLAD_GL_KHR_debug)
 			{
 				glObjectLabel(GL_SHADER, shader, -1, vertexPath.c_str());
 			}
@@ -612,7 +612,7 @@ SHADER_MODE pie_LoadShader(SHADER_VERSION vertex_version, SHADER_VERSION fragmen
 				glAttachShader(program.program, shader);
 				success = true;
 			}
-			if (GLEW_VERSION_4_3 || GLEW_KHR_debug)
+			if (GLAD_GL_VERSION_4_3 || GLAD_GL_KHR_debug)
 			{
 				glObjectLabel(GL_SHADER, shader, -1, fragmentPath.c_str());
 			}
@@ -637,7 +637,7 @@ SHADER_MODE pie_LoadShader(SHADER_VERSION vertex_version, SHADER_VERSION fragmen
 		{
 			printProgramInfoLog(LOG_3D, program.program);
 		}
-		if (GLEW_VERSION_4_3 || GLEW_KHR_debug)
+		if (GLAD_GL_VERSION_4_3 || GLAD_GL_KHR_debug)
 		{
 			glObjectLabel(GL_PROGRAM, program.program, -1, programName);
 		}

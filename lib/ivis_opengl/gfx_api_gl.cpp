@@ -95,7 +95,7 @@ void gl_texture::upload(const size_t& mip_level, const size_t& offset_x, const s
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP, GL_TRUE);
+		glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP_SGIS, GL_TRUE);
 	}
 	glTexSubImage2D(GL_TEXTURE_2D, mip_level, offset_x, offset_y, width, height, to_gl(buffer_format), GL_UNSIGNED_BYTE, data);
 	if(generate_mip_levels && glGenerateMipmap)
@@ -158,7 +158,7 @@ gfx_api::texture* gl_context::create_texture(const size_t & width, const size_t 
 {
 	auto* new_texture = new gl_texture();
 	new_texture->bind();
-	if (!filename.empty() && (GLEW_VERSION_4_3 || GLEW_KHR_debug))
+	if (!filename.empty() && (GLAD_GL_VERSION_4_3 || GLAD_GL_KHR_debug))
 	{
 		glObjectLabel(GL_TEXTURE, new_texture->id(), -1, filename.c_str());
 	}

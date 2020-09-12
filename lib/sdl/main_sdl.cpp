@@ -1957,6 +1957,12 @@ bool wzMainScreenSetup(int antialiasing, bool fullscreen, bool vsync, bool highD
 	cocoaSetupWZMenus();
 #endif
 
+	if (!gladLoadGLLoader((GLADloadproc) SDL_GL_GetProcAddress))
+	{
+		debug(LOG_FATAL, "Error: GLAD initialisation failed");
+		exit(1);
+	}
+
 	// FIXME: aspect ratio
 	glViewport(0, 0, width, height);
 	glCullFace(GL_FRONT);

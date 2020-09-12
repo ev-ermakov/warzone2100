@@ -99,7 +99,6 @@ struct OPENGL_DATA
 	char vendor[256];
 	char renderer[256];
 	char version[256];
-	char GLEWversion[256];
 	char GLSLversion[256];
 };
 extern OPENGL_DATA opengl;

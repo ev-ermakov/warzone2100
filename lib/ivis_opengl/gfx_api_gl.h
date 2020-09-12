@@ -21,7 +21,7 @@
 
 #include "gfx_api.h"
 
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <algorithm>
 #include <cmath>
 

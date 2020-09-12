@@ -46,7 +46,7 @@ struct iIMDShape;
 
 #define GL_DEBUG(_str) \
 	do { \
-		if (GLEW_GREMEDY_string_marker) \
+		if (GLAD_GL_GREMEDY_string_marker) \
 		{ \
 			glStringMarkerGREMEDY(0, _str); \
 		} \

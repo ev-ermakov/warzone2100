@@ -13,7 +13,7 @@ cmake_minimum_required(VERSION 3.5)
 set(VCPKG_COMMIT_SHA "14514508d8d30bdbd645b2bec89696aec25497f1")
 
 # WZ macOS dependencies (for vcpkg install)
-set(VCPKG_INSTALL_DEPENDENCIES physfs harfbuzz libogg libtheora libvorbis libpng sdl2 glew freetype gettext zlib openal-soft curl[sectransp] libsodium)
+set(VCPKG_INSTALL_DEPENDENCIES physfs harfbuzz libogg libtheora libvorbis libpng sdl2 freetype gettext zlib openal-soft curl[sectransp] libsodium)
 
 # WZ minimum supported macOS deployment target (this is 10.10 because of Qt 5.9.x)
 set(MIN_SUPPORTED_MACOSX_DEPLOYMENT_TARGET "10.10")
@@ -264,7 +264,6 @@ execute_process(COMMAND ${CMAKE_COMMAND} -E echo "++ Running CMake configure (to
 execute_process(
 	COMMAND ${CMAKE_COMMAND}
 		"-DCMAKE_TOOLCHAIN_FILE=${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake"
-		-DGLEW_USE_STATIC_LIBS=ON
 		${_additional_configure_arguments}
 		-G Xcode
 		"${_repoBase}"

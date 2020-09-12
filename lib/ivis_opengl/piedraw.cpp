@@ -549,21 +549,21 @@ void pie_SetUp()
 {
 	// initialise pie engine
 
-	if (GLEW_EXT_stencil_wrap)
+	if (GLAD_GL_EXT_stencil_wrap)
 	{
 		ss_op_depth_pass_front = GL_INCR_WRAP;
 		ss_op_depth_pass_back = GL_DECR_WRAP;
 	}
 
-	if (GLEW_VERSION_2_0)
+	if (GLAD_GL_VERSION_2_0)
 	{
 		ShadowStencilFunc = ss_GL2_1pass;
 	}
-	else if (GLEW_EXT_stencil_two_side)
+	else if (GLAD_GL_EXT_stencil_two_side)
 	{
 		ShadowStencilFunc = ss_EXT_1pass;
 	}
-	else if (GLEW_ATI_separate_stencil)
+	else if (GLAD_GL_ATI_separate_stencil)
 	{
 		ShadowStencilFunc = ss_ATI_1pass;
 	}
